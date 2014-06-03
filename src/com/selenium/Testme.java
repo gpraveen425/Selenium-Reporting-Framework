@@ -6,7 +6,7 @@ public class Testme {
 
 	public static void main(String Args[]) {
 		int i = 0;
-		report o = new report();
+		report_may03 o = new report_may03();
 		String alph[] = { "1", "2", "3", "4", "5", "6" };
 		for (i = 0; i <= 4; i++) {
 			o.Addinput(alph[i], i);
