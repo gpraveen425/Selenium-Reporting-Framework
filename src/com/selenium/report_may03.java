@@ -1,4 +1,4 @@
-package com.selenium;
+package com.selenium.report;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -22,7 +22,6 @@ public class report_may03 {
 	static String html = "";
 	static String htmlmain = "";
 	static String htmlresult = "";
-//	static String htmlpiechart = "";
 	static List ip = new ArrayList<String>();
 	static List op = new ArrayList<String>();
 	static List exp = new ArrayList<String>();
@@ -66,12 +65,12 @@ public class report_may03 {
 		// Method to generate output as html report
 		for (int i = 0; i <= r; i++) {
 			if (op.get(i).equals(exp.get(i))) {
-				res.add(i, "Pass");
+				res.add(i, "PASS");
 				countP++;
 			}
 
 			else {
-				res.add(i, "Fail");
+				res.add(i, "FAIL");
 				countF++;
 			}
 		}
@@ -89,45 +88,35 @@ public class report_may03 {
 		}		
 		
 						
-		/*System.out.println(countA);
+/*		System.out.println(countA);
 		System.out.println(countP);
-		System.out.println(countF);		*/
+		System.out.println(countF);		
 		countS = countA - (countP + countF);
-//		System.out.println(countS);
-		
-		countF = 23;
-		countP = 234;		
-		countS = 234;
-		
-//		htmlpiechart += "${countF}" + countF + "${countP}" + countP + "${countS}" + countS;
-//		htmlpiechart += "<#assign countF = 213123, countP = 213, countS = 213123>";
+		System.out.println(countS);*/
 
-		
-//		engine.eval("<meta http-equiv=\"Set-Cookie\" content=\"COOKIE2_VALUE_HERE\">");
-		
-//		var myString = ;
-//		var myRegexp = /<meta http-equiv=[\"']?set-cookie[\"']? content=[\"'](.*)[\"'].*>/ig;
-//		var match = myRegexp.exec(myString);
-		
-		htmlmain += "<html><head><link rel=\"stylesheet\" href=\"https://sites.google.com/site/seleniumworks/srf/style.css\" type=\"text/css\"><title>SRF Report</title><script type=\"text/javascript\" src=\"https://www.google.com/jsapi\"></script><script type=\"text/javascript\">google.load(\"visualization\", \"1\", {packages:[\"corechart\"]});google.setOnLoadCallback(drawChart);function drawChart() {var data = google.visualization.arrayToDataTable([['Test_report', 'Percentage'],['Work', 0],['Fail', 5],['Skipped', 2],['Pass', 10],['Sleep', 0]]);"
+		htmlmain += "<html><head><link rel=\"stylesheet\" href=\"https://sites.google.com/site/seleniumworks/srf/style.css\" type=\"text/css\">"
+				+ "<title>SRF Report</title><script>window.onload=function(){ failed="+countF+"; passed="+countP+";skipped="+countS+";}</script><script type=\"text/javascript\" src=\"https://www.google.com/jsapi\"></script><script type=\"text/javascript\">google.load(\"visualization\", \"1\", "
+				+ "{packages:[\"corechart\"]});google.setOnLoadCallback(drawChart);function drawChart() "
+				+ "{var data = google.visualization.arrayToDataTable([['Test_report', 'Percentage'],['Work', 0],['Fail', failed],['Skipped', skipped],['Pass', passed],['Sleep', 0]]);"
 				+ "var options = {title: 'Selenium Pie Chart Report', is3D: true,};var chart = new google.visualization.PieChart(document.getElementById('piechart_3d'));chart.draw(data, options);}</script><style>html, body{padding:15;margin:0;position:relative;	background-repeat:repeat;	color:#000;	letter-spacing:1px;	font-family:Georgia, "
 				+ "Times New Roman"
-				+ ", Times, serif;}.zebra caption{	font-size:20px;	font-weight:normal;	background-repeat:no-repeat;background-position: 130px center;padding-top: 20px;height:50px;}#container{	padding-top:20px;	width:960px;	margin:0 auto;}table {border-collapse: collapse;border-spacing: 0;width:100%;-webkit-box-shadow:  0px 2px 1px 5px rgba(242, 242, 242, 0.1);box-shadow:  0px 2px 1px 5px rgba(242, 242, 242, 0.1);}.zebra {border: 1px solid #555;}.zebra td {border-left: 1px solid #555;border-top: 1px solid #555;padding: 10px;text-align: left;}.zebra th, .zebra th:hover {border-left: 1px solid #555;border-bottom: 1px solid #828282;padding: 20px;  background-color:#151515 !important;background-image: -webkit-gradient(linear, left top, left bottom, from(#151515), to(#404040)) !important;background-image: -webkit-linear-gradient(top, #151515, #404040) !important;background-image:    -moz-linear-gradient(top, #151515, #404040) !important;background-image:     -ms-linear-gradient(top, #151515, #404040) !important;background-image:      -o-linear-gradient(top, #151515, #404040) !important;background-image:         linear-gradient(top, #151515, #404040) !important;color:#fff !important;font-weight:normal;}.zebra tbody tr:nth-child(even) {background: #000 !important;color:#fff;}.zebra tr:hover *{background: #eeeeee;color:#000;}.zebra tr {background:#404040;color:#fff;}	</style></head><body style="
-				+ "background-color: rgb(219, 217, 217);"
+				+ ", Times, serif;}.zebra caption{	font-size:20px;background-color:white;	font-weight:normal;	background-repeat:no-repeat;background-position: 130px center;padding-top: 20px;height:50px;}#container{	padding-top:20px;	width:960px;	margin:0 auto;}table {border-collapse: collapse;border-spacing: 0;width:100%;-webkit-box-shadow:  0px 2px 1px 5px rgba(242, 242, 242, 0.1);box-shadow:  0px 2px 1px 5px rgba(242, 242, 242, 0.1);}.zebra {border: 1px solid #555;}.zebra td {border-left: 1px solid #555;border-top: 1px solid #555;padding: 10px;text-align: left;font-family: sans-serif;font-size: 15px;}.zebra th, .zebra th:hover {border-left: 1px solid #555;border-bottom: 1px solid #828282;padding: 20px;  background-color:#151515 !important;background-image: -webkit-gradient(linear, left top, left bottom, from(#151515), to(#404040)) !important;background-image: -webkit-linear-gradient(top, #151515, #404040) !important;background-image:    -moz-linear-gradient(top, #151515, #404040) !important;background-image:     -ms-linear-gradient(top, #151515, #404040) !important;background-image:      -o-linear-gradient(top, #151515, #404040) !important;background-image:         linear-gradient(top, #151515, #404040) !important;color:#fff !important;font-weight:normal;}.zebra tbody tr:nth-child(even) {background: #000 !important;color:#fff;}.zebra tr:hover *{background: #eeeeee;color:#000;}.zebra tr {background:#404040;color:#fff;}	</style></head><body style="
+				+ "background-color:white;"
 				+ "><div id="
-				+ "container"
+				+ "container"				
 				+ "> <div style="
 				+ "margin-bottom:50px;"
 				+ "><table class="
 				+ "zebra"
-				+ "><caption>Selenium Reporting Framework - Test Results</caption> <tbody id=summary><tr><td>No. Of Test Passed</td> <td>No. Of Test Failed</td> <td>Pass %</td></tr><tr>$summary</tr></table></div>" +"<div id=\"piechart_3d\" style=\"width: 750px; height: 350px;\"></div>"+"<table class="
+				+ "><caption>Selenium Reporting Framework - Test Results</caption> <tbody id=summary><tr><td>PASSED</td> <td>FAILED</td> <td>PASS %</td></tr><tr>$summary</tr></table></div>" +"<div id=\"piechart_3d\" style=\"width: 750px; height: 350px;\"></div>"+"<table class="
 				+ "zebra"
 				+ ">"				
 				+ "<p>Detailed Report</p>"
 				+ "<tbody id="
-				+ "theBody"
-				+ "><tr> <td>Input</td> <td>Expected Output</td> <td>Output</td> <td>Result</td> </tr>$body </tbody></table>"
-				+ "<div id=\"cookie-info\" style=\"opacity: 1; display: block;\"><strong> Next Generation Reports:</strong> Copyright Â© 2014 Seleniumworks. All rights reserved. <a id=\"tellmemore\" href=\"http://www.seleniumworks.com\">Blogger</a><div id=\"cookie-close\">SRF</div>"
+				+ "theBody"				
+				+ ">"				
+				+ "<tr> <td>Input</td> <td>Expected Output</td> <td>Actual Output</td> <td>Result</td> </tr>$body </tbody></table>"
+				+ "<div id=\"cookie-info\" style=\"opacity: 1; display: block;\"><strong> Next Generation Reports:</strong> Copyright © 2014 Seleniumworks. All rights reserved. <a id=\"tellmemore\" href=\"http://www.seleniumworks.com\">Blogger</a><div id=\"cookie-close\">SRF</div>"				
 				+ "</body>	</html>";
 		String htmlw = "";
 		File testHtml = new File("test.html");
@@ -140,7 +129,6 @@ public class report_may03 {
 		// Create result html
 		htmlString = htmlString.replace("$body", html);
 		htmlString = htmlString.replace("$summary", htmlresult);
-//		htmlString = htmlString.replace("$value", htmlpiechart);
 		File newHtmlFile = new File("Report.html");
 		FileUtils.writeStringToFile(newHtmlFile, htmlString);
 		// delete sample html
